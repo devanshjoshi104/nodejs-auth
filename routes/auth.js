@@ -66,7 +66,7 @@ router.post('/login',async (req,res)=>{
                     else {
                        
                         const {name,_id,email,enrollmentNo,BhawanName, Branch,  Year} = user;
-                        res.status(400).json({token:token,user:{name,_id,email,enrollmentNo,BhawanName, Branch,  Year}})
+                        res.status(200).json({token:token,user:{name,_id,email,enrollmentNo,BhawanName, Branch,  Year}})
                     }
                 })
             }
