@@ -42,7 +42,9 @@ router.get('/forgot/:token', authController.gotoReset);
 //------------ Login POST Handle ------------//
 router.post('/login',async (req,res)=>{
     const { email, password } = req.body;
-    const user = await User.findOne({ email:req.body.email });
+    console.log("login request recieved: "+ email)
+    const user = await User.findOne({ email:email});
+    console.log(user)
     if (!user) {
         res.json("No user exists with this email")
     }
@@ -51,17 +53,20 @@ router.post('/login',async (req,res)=>{
             if (err) {
                 console.log(err);
                 callback(err, null)
+                res.json("password checking halted")
             }
             else if (!valid) {
                 console.log(valid);
                 res.json("Wrong password")
             }
             else {
+                
                 AssignToken(user, (err, token) => {
                     if (err) res.json("Something bad happened")
                     else {
-                        const {name,_id,email} = user;
-                        res.json({token:token,user:{name,_id,email,enrollmentNo,BhawanName, Branch,  Year}})
+                       
+                        const {name,_id,email,enrollmentNo,BhawanName, Branch,  Year} = user;
+                        res.status(400).json({token:token,user:{name,_id,email,enrollmentNo,BhawanName, Branch,  Year}})
                     }
                 })
             }
