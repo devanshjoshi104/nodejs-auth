@@ -61,7 +61,7 @@ router.post('/login',async (req,res)=>{
                     if (err) res.json("Something bad happened")
                     else {
                         const {name,_id,email} = user;
-                        res.json({token:token,user:{name,_id,email}})
+                        res.json({token:token,user:{name,_id,email,enrollmentNo,BhawanName, Branch,  Year}})
                     }
                 })
             }
