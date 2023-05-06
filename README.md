@@ -1,4 +1,9 @@
 # NodeJS Authentication App
+> Backend Auth for dustributed Ledger. BTP project 
+> deployed on https://btp-auth.onrender.com
+
+Idea of our project was Students can browse and borrow books directly from other students through a Decentralized Book Exchange or (DeBex). It is a Web3 application that is P2P based.
+> 
 > A complete authentication app with login, logout, register, forget password, email verification(for added security), and access control. Can be used as starter for other Node.JS applications. using Node.js, Express, Passport, JWT, Mongoose, and more. 
 
 ## Web App Link
